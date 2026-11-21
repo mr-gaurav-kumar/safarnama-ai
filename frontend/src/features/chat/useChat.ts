@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { getAccessToken, refreshSession } from '@/lib/api'
+import { getAccessToken, refreshSession, wsUrl } from '@/lib/api'
 
 export interface ChatMessage {
   id: string
@@ -44,8 +44,7 @@ export function useChat(active: boolean) {
         return
       }
       setStatus(retries === 0 ? 'connecting' : 'reconnecting')
-      const scheme = window.location.protocol === 'https:' ? 'wss' : 'ws'
-      const ws = new WebSocket(`${scheme}://${window.location.host}/api/ws/chat`)
+      const ws = new WebSocket(wsUrl('/ws/chat'))
       socket.current = ws
 
       ws.onopen = () => ws.send(JSON.stringify({ type: 'auth', token }))

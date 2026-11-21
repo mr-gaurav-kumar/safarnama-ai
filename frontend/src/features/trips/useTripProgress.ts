@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
-import { getAccessToken, refreshSession } from '@/lib/api'
+import { getAccessToken, refreshSession, wsUrl } from '@/lib/api'
 import { tripKeys } from '@/features/trips/api'
 
 export interface ProgressStep {
@@ -44,8 +44,7 @@ export function useTripProgress(tripId: string | undefined, active: boolean) {
         setPhase('unavailable')
         return
       }
-      const scheme = window.location.protocol === 'https:' ? 'wss' : 'ws'
-      const ws = new WebSocket(`${scheme}://${window.location.host}/api/ws/trips/${tripId}`)
+      const ws = new WebSocket(wsUrl(`/ws/trips/${tripId}`))
       socket = ws
       setPhase('connecting')
 

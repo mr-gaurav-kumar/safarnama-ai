@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useQueryClient } from '@tanstack/react-query'
-import { getAccessToken, refreshSession } from '@/lib/api'
+import { getAccessToken, refreshSession, wsUrl } from '@/lib/api'
 import { useTrip } from '@/features/trips/api'
 import { useMembers } from '@/features/trips/groupApi'
 import { useAuth } from '@/lib/auth'
@@ -37,8 +37,7 @@ export function TripRoomPage() {
     function connect() {
       const token = getAccessToken()
       if (!token) return setStatus('closed')
-      const scheme = window.location.protocol === 'https:' ? 'wss' : 'ws'
-      const ws = new WebSocket(`${scheme}://${window.location.host}/api/ws/trips/${id}/room`)
+      const ws = new WebSocket(wsUrl(`/ws/trips/${id}/room`))
       socket.current = ws
       ws.onopen = () => ws.send(JSON.stringify({ type: 'auth', token }))
       ws.onmessage = (e) => {

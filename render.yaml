@@ -1,0 +1,46 @@
+# Render Blueprint for the backend (FastAPI). New > Blueprint > pick this repo.
+# Secrets (sync: false) are asked for once in the Render dashboard -- copy them
+# from your local .env. Nothing secret is stored in this file.
+services:
+  - type: web
+    name: safarnama-api
+    runtime: python
+    plan: free
+    region: singapore            # next to the Supabase database (ap-southeast-1)
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    # Migrations run on every deploy; --proxy-headers so rate limits and the
+    # fraud log see the visitor's IP, not Render's or Vercel's.
+    startCommand: alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips "*"
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: DEBUG
+        value: "false"
+      - key: TASK_BACKEND
+        value: inline
+      - key: REFRESH_COOKIE_SECURE
+        value: "true"
+      - key: FRONTEND_URL
+        value: https://safarnama-ai.vercel.app
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: DOCUMENT_ENCRYPTION_KEY
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: SMTP_FROM
+        sync: false
