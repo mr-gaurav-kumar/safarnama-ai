@@ -1,0 +1,47 @@
+# env / secrets
+.env
+.env.local
+*.pem
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# node
+node_modules/
+dist/
+.vite/
+
+# editors / os
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# runtime
+*.log
+
+# local dev database
+*.db
+
+# local previews
+.preview/
+
+# uploaded photos
+backend/media/
+
+# travellers' encrypted ID documents -- never commit
+backend/private_documents/
+
+# scratch files and working copies -- not part of the project
+Claude outputs/
+python.py
+
+# frontend local env files
+frontend/.env.local
+frontend/.env.*.local
+*.tsbuildinfo

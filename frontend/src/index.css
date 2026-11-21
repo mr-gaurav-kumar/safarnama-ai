@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Instrument Serif", Georgia, serif;
+
+  /* Admin "royal" accents: a warm gold on deep navy. */
+  --color-gold: #c9a45c;
+  --color-gold-light: #e8d3a2;
+  --color-gold-dark: #9c7a3a;
+  --color-ink: #0b1020;
+}
+
+/* The app is light-only for now, so native controls must not switch to dark
+   on a dark-mode OS while the cards around them stay white. */
+:root {
+  color-scheme: light;
+
+  /* Chart roles (see the dataviz notes in features/insights). Charts use
+     these, never raw hex, so a future dark theme changes them in one place. */
+  --viz-surface: #ffffff;
+  --viz-domestic: #2a78d6;   /* categorical slot 1 - domestic visits */
+  --viz-foreign: #eb6834;    /* categorical slot 2 - foreign visits/arrivals */
+  --viz-muted-mark: #b8b6ae; /* de-emphasised marks (other days on the map) */
+  --viz-grid: #e1e0d9;
+  --viz-axis: #c3c2b7;
+  --viz-ink: #0b0b0b;
+  --viz-ink-2: #52514e;
+  --viz-ink-muted: #898781;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ---- landing page motion ---- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes word-in {
+  from { opacity: 0; transform: translateY(0.4em); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes grow-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.animate-marquee { animation: marquee 40s linear infinite; }
+.animate-word-in { animation: word-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-fade-up { animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-grow-x { animation: grow-x 1s cubic-bezier(0.22, 1, 0.36, 1) both; transform-origin: left; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-word-in, .animate-fade-up, .animate-grow-x { animation: none !important; }
+}
