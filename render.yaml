@@ -23,7 +23,7 @@ services:
       - key: REFRESH_COOKIE_SECURE
         value: "true"
       - key: FRONTEND_URL
-        value: https://safarnama-ai.vercel.app
+        value: https://safarnama-ai-flame.vercel.app
       - key: DATABASE_URL
         sync: false
       - key: JWT_SECRET_KEY
