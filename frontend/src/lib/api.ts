@@ -33,7 +33,7 @@ export const api = axios.create({
  * In development the Vite proxy forwards /api (WebSockets included). In
  * production the frontend's host (Vercel) proxies plain HTTP but not
  * WebSockets, so VITE_WS_BASE points sockets straight at the backend, e.g.
- * wss://safarnama-api.onrender.com. Sockets authenticate with their first
+ * wss://safarnama-api-oi2a.onrender.com. Sockets authenticate with their first
  * message, not a cookie, so connecting across origins is fine.
  */
 export function wsUrl(path: string): string {

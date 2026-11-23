@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/api/:path*", "destination": "https://safarnama-api.onrender.com/:path*" },
+    { "source": "/api/:path*", "destination": "https://safarnama-api-oi2a.onrender.com/:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
