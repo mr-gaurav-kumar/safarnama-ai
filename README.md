@@ -4,6 +4,9 @@
 
 *Your Next Adventure, Perfectly Planned.*
 
+**Live demo:** https://safarnama-ai-flame.vercel.app · API: https://safarnama-api-oi2a.onrender.com/docs
+(free hosting: the first request after a quiet spell can take about 50 seconds while the server wakes up)
+
 An AI trip planner for India with personal memory. Every finished trip is
 embedded with Gemini and stored in Postgres (pgvector); a new request retrieves
 the traveller's most similar past trips (RAG) and Gemini writes a day-by-day plan
