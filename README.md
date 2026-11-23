@@ -1,11 +1,20 @@
 <p align="center"><img src="docs/brand/safarnama-logo.png" alt="Safarnama logo" width="320" /></p>
 
+<p align="center">
+  <a href="https://safarnama-ai-flame.vercel.app"><img src="https://img.shields.io/badge/Live-Demo-4F46E5?style=for-the-badge&logo=vercel&logoColor=white" alt="Live demo" /></a>
+  <a href="https://github.com/mr-gaurav-kumar/safarnama-ai"><img src="https://img.shields.io/badge/GitHub-Code-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="https://safarnama-api-oi2a.onrender.com/docs"><img src="https://img.shields.io/badge/API%20docs-Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" alt="API docs" /></a>
+</p>
+
+- **Live:** https://safarnama-ai-flame.vercel.app
+- **GitHub:** https://github.com/mr-gaurav-kumar/safarnama-ai
+- **API docs:** https://safarnama-api-oi2a.onrender.com/docs (Swagger)
+
+<sub>Free hosting: the first request after a quiet spell can take about 50 seconds while the server wakes up.</sub>
+
 # Safarnama: AI Travel Planner
 
 *Your Next Adventure, Perfectly Planned.*
-
-**Live demo:** https://safarnama-ai-flame.vercel.app · API: https://safarnama-api-oi2a.onrender.com/docs
-(free hosting: the first request after a quiet spell can take about 50 seconds while the server wakes up)
 
 An AI trip planner for India with personal memory. Every finished trip is
 embedded with Gemini and stored in Postgres (pgvector); a new request retrieves
