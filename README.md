@@ -6,6 +6,10 @@
   <a href="https://safarnama-api-oi2a.onrender.com/docs"><img src="https://img.shields.io/badge/API%20docs-Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" alt="API docs" /></a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/mr-gaurav-kumar/safarnama-ai/actions/workflows/ci.yml"><img src="https://github.com/mr-gaurav-kumar/safarnama-ai/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+</p>
+
 - **Live:** https://safarnama-ai-flame.vercel.app
 - **GitHub:** https://github.com/mr-gaurav-kumar/safarnama-ai
 - **API docs:** https://safarnama-api-oi2a.onrender.com/docs (Swagger)
